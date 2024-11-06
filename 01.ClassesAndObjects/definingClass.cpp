@@ -20,12 +20,4 @@ int main()
 
     // Creating a car on the stack:
     Car car2;
-
-    std::string brand;
-    std::getline(std::cin, brand);
-
-    std::cout << "You selected " << brand << std::endl;
-
-    int x = 10;
-    int y = 11;
 }
