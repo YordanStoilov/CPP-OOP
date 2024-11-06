@@ -1,13 +1,5 @@
-/**
-*  
-*   To compile just the current active file run the "build active file" Task.
-*
-*   To compile all source file in the workspace run the "build current directory" Task (remember
-*   that in this case you can have only one source file with a function named "main" in workspaceFolder).
-*/
 {
     "version": "2.0.0",
-
     "tasks": [
         {
             "type": "shell",
@@ -33,7 +25,6 @@
                 "command": ".\\.vscode\\make_build_dir.bat\""
             }
         },
-
         {
             "type": "shell",
             "label": "build active file",
@@ -49,9 +40,8 @@
                 "cwd": "${workspaceFolder}"
             },
             "windows": {
-                "command": "gcc.exe",
+                "command": "clang++.exe",
                 "args": [
-                    "-std=c11",
                     "-g",
                     "-Wall",
                     "${file}",
@@ -60,29 +50,26 @@
                 ]
             },
             "linux": {
-                "command": "/usr/bin/gcc",
+                "command": "/usr/bin/clang++",
                 "args": [
-                    "-std=c11",
                     "-g",
                     "-Wall",
                     "${file}",
                     "-o",
                     "${workspaceFolder}/build/${fileBasenameNoExtension}"
-                ],
+                ]
             },
             "osx": {
-                "command": "/usr/bin/clang",
+                "command": "/usr/bin/clang++",
                 "args": [
-                    "-std=c11",
                     "-g",
                     "-Wall",
                     "${file}",
                     "-o",
                     "${workspaceFolder}/build/${fileBasenameNoExtension}"
-                ],
+                ]
             }
         },
-
         {
             "type": "shell",
             "label": "build current directory",
@@ -95,49 +82,38 @@
                 "cwd": "${workspaceFolder}"
             },
             "windows": {
-                "command": "gcc.exe",
+                "command": "clang++.exe",
                 "args": [
-                    "-std=c11",
+                    "-std=c++17",
                     "-g",
                     "-Wall",
-                    "${workspaceFolder}\\*.c",
+                    "${workspaceFolder}\\*.cpp",
                     "-o",
                     "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
                 ]
             },
             "linux": {
-                "command": "/usr/bin/gcc",
+                "command": "/usr/bin/clang++",
                 "args": [
-                    "-std=c11",
+                    "-std=c++17",
                     "-g",
                     "-Wall",
-                    "${workspaceFolder}\\*.c",
+                    "${workspaceFolder}/*.cpp",
                     "-o",
                     "${workspaceFolder}/build/${fileBasenameNoExtension}"
-                ],
+                ]
             },
             "osx": {
-                "command": "/usr/bin/clang",
+                "command": "/usr/bin/clang++",
                 "args": [
-                    "-std=c11",
+                    "-std=c++17",
                     "-g",
                     "-Wall",
-                    "${workspaceFolder}\\*.c",
+                    "${workspaceFolder}/*.cpp",
                     "-o",
                     "${workspaceFolder}/build/${fileBasenameNoExtension}"
-                ],
+                ]
             }
-        },
-
-        {
-            //Mac only: use if the external console does not open on launch
-            "label": "Open Terminal",
-            "type": "shell",
-            "command": "echo \"Mac only!\"",
-            "osx": {
-                "command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo Ready\"\nend tell'",
-            },
-            "problemMatcher": []
         }
     ]
 }

@@ -10,23 +10,16 @@
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": false,
-      "MIMode": "gdb",
+      "MIMode": "lldb",
       "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
-      "linux": {
-        "miDebuggerPath": "/usr/bin/gdb"
-      },
-      "windows": {
-        "program": "${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe",
-        "miDebuggerPath": "gdb.exe"
-      },
       "osx": {
         "MIMode": "lldb",
-        "externalConsole": true
+        "miDebuggerPath": "/usr/bin/lldb"
       },
       "setupCommands": [
         {
-          "description": "Enable pretty-printing for gdb",
-          "text": "-enable-pretty-printing",
+          "description": "Enable pretty-printing for lldb",
+          "text": "settings set target.print-object-description false",
           "ignoreFailures": true
         }
       ],
@@ -37,8 +30,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/yordanstoilov/Desktop/headrush/Coding/C-Advanced/C-Fundamentals/04.PointerArithmetic",
-      "program": "/Users/yordanstoilov/Desktop/headrush/Coding/C-Advanced/C-Fundamentals/04.PointerArithmetic/build/Debug/outDebug"
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}" 
     }
   ]
 }
