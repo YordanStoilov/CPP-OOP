@@ -26,8 +26,8 @@ int main()
     car.ownerName = "George"; // OK (public)
     car.price = 25000.25; // OK (public)
 
-    car.weight = 2500; // Compile error (protected)
-    car.make = "VW"; // Compile error (protected)
+    // car.weight = 2500; // Compile error (protected)
+    // car.make = "VW"; // Compile error (protected)
 
-    car.vinNumber = "25041239"; // Compile error (private)
+    // car.vinNumber = "25041239"; // Compile error (private)
 }
