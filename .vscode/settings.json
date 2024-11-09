@@ -23,7 +23,8 @@
   "files.associations": {
     "stdio.h": "c",
     "stdbool.h": "c",
-    "ostream": "cpp"
+    "ostream": "cpp",
+    "typeinfo": "cpp"
   },
   "C_Cpp_Runner.msvcWarnings": [
     "/W4",
