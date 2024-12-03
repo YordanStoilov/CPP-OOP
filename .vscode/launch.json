@@ -2,36 +2,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Build and debug active file",
-      "type": "cppdbg",
-      "request": "launch",
-      "args": [],
-      "stopAtEntry": false,
-      "cwd": "${workspaceFolder}",
-      "environment": [],
-      "externalConsole": false,
-      "MIMode": "lldb",
-      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}",
-      "osx": {
-        "MIMode": "lldb",
-        "miDebuggerPath": "/usr/bin/lldb"
-      },
-      "setupCommands": [
-        {
-          "description": "Enable pretty-printing for lldb",
-          "text": "settings set target.print-object-description false",
-          "ignoreFailures": true
-        }
-      ],
-      "preLaunchTask": "build active file"
-    },
-    {
       "name": "C/C++ Runner: Debug Session",
       "type": "lldb",
       "request": "launch",
       "args": [],
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/build/${fileBasenameNoExtension}" 
+      "program": "${fileDirname}/build/${fileBasenameNoExtension}"
     }
   ]
 }
