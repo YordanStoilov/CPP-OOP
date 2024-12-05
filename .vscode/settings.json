@@ -132,6 +132,7 @@
     "regex": "cpp",
     "filesystem": "cpp",
     "numeric": "cpp",
-    "random": "cpp"
+    "random": "cpp",
+    "set": "cpp"
   }
 }
