@@ -24,6 +24,7 @@ public:
         string word;
         while (ss >> word) { words.insert(word); }
     }
+
     void printFoundWords(char letter)
     {
         letter = toLower(letter);
@@ -41,6 +42,20 @@ public:
         }
         std::cout << std::endl;
     }
+    class WordProcessor
+    {
+    public:
+        static void processWords(std::istream& stream, Text& const textObj)
+        {
+                char command;
+                while (true)
+                {
+                    std::cin >> command;
+                    if (command == '.') { break; }
+                    textObj.printFoundWords(command);
+                }
+        }
+    };
 private:
     set<string> words;
     char toLower(char character)
@@ -52,12 +67,5 @@ private:
 int main()
 {
     Text textObj(std::cin);
-
-    char command;
-    while (true)
-    {
-        std::cin >> command;
-        if (command == '.') { break; }
-        textObj.printFoundWords(command);
-    }
+    Text::WordProcessor::processWords(std::cin, textObj);
 }
