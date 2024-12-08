@@ -133,6 +133,8 @@
     "filesystem": "cpp",
     "numeric": "cpp",
     "random": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "list": "cpp",
+    "thread": "cpp"
   }
 }
