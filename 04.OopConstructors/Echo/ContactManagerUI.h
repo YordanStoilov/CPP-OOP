@@ -14,14 +14,11 @@ public:
 	ContactManagerUI(std::vector<EmailContact>& contacts, bool hintsOn);
 
 	void start();
-
 	void stop();
 
 private:
 	void handleInput(char choice);
-
 	void printMenu();
-
 	std::vector<EmailContact>::iterator queryContact();
 };
 

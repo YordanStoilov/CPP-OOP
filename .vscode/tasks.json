@@ -6,9 +6,14 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-std=c++17", 
+                
+                "${fileDirname}/EchoMain.cpp",
+                "${fileDirname}/EmailContact.cpp",
+                "${fileDirname}/ContactManagerUI.cpp",
+                "${fileDirname}/Echo.cpp",
+
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
                 "-o",
                 "${fileDirname}/build/${fileBasenameNoExtension}"
             ],
