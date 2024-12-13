@@ -7,10 +7,12 @@
             "args": [
                 "-std=c++17", 
                 
-                "${fileDirname}/EchoMain.cpp",
-                "${fileDirname}/EmailContact.cpp",
-                "${fileDirname}/ContactManagerUI.cpp",
-                "${fileDirname}/Echo.cpp",
+                // "${fileDirname}/EchoMain.cpp",
+                // "${fileDirname}/EmailContact.cpp",
+                // "${fileDirname}/ContactManagerUI.cpp",
+                // "${fileDirname}/Echo.cpp",
+                
+                "${file}",
 
                 "-fdiagnostics-color=always",
                 "-g",
