@@ -5,12 +5,10 @@
 
 std::string getProfitReport(Company* begin, Company* end, std::map<int, ProfitCalculator>& profitCalculatorsByCompany){
     std::ostringstream os;
-    
-    Company* it = begin;
 
-    for (auto it = begin ;it != end + 1; ++it){
-        int totalCompanyProfits = profitCalculatorsByCompany[it->getId()].calculateProfit(*it);
-        os << it->getName() << " = " << totalCompanyProfits << '\n';
+    for (;begin != end + 1; ++begin){
+        int totalCompanyProfits = profitCalculatorsByCompany[begin->getId()].calculateProfit(*begin);
+        os << begin->getName() << " = " << totalCompanyProfits << '\n';
     }
     return os.str();
 }
