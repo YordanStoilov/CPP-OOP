@@ -1,7 +1,7 @@
 #ifndef FIND_H
 
 #define FIND_H
-Company* find(std::vector<Company*> companies, int searchId){
+Company* find(const std::vector<Company*> companies, const int searchId){
     for (Company* company : companies){
         if (company->getId() == searchId){
             return company;
