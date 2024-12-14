@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "${workspaceFolder}",
-      "program": "${fileDirname}/build/${fileBasenameNoExtension}"
+      "cwd": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/04.OopConstructors/Find",
+      "program": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/04.OopConstructors/Find/build/Debug/outDebug"
     }
   ]
 }
