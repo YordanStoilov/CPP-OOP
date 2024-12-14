@@ -7,12 +7,12 @@
             "args": [
                 "-std=c++17", 
                 
-                "${fileDirname}/Register.cpp",
-                "${fileDirname}/RegisterMain.cpp",
+                // "${fileDirname}/Register.cpp",
+                // "${fileDirname}/RegisterMain.cpp",
                 // "${fileDirname}/ContactManagerUI.cpp",
                 // "${fileDirname}/Echo.cpp",
                 
-                // "${file}",
+                "${file}",
 
                 "-fdiagnostics-color=always",
                 "-g",
