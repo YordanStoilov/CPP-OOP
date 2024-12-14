@@ -2,14 +2,13 @@
 
 #define TRY_PARSE_H
 #include <string> 
+#include <sstream>
 bool tryParse(std::string& str, int& destination){
-    
-    try{
-        destination = std::stoi(str);
-        return true;
-    }
-    catch (std::invalid_argument){
-        return false;
-    }
+    std::istringstream iss(str);
+
+    iss >> destination;
+
+    return (bool)iss;
 }
+
 #endif
