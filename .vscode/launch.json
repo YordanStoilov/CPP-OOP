@@ -7,7 +7,7 @@
       "request": "launch",
       "args": [],
       "cwd": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/04.OopConstructors/Find",
-      "program": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/04.OopConstructors/Find/build/Debug/outDebug"
+      "program": "${fileDirname}/build/${fileBasenameNoExtension}"
     }
   ]
 }
