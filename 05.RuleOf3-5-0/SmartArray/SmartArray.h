@@ -9,10 +9,31 @@ class SmartArray{
 public:
     SmartArray();
     SmartArray(size_t size);
-    SmartArray(const SmartArray& other) = delete;
-    SmartArray(SmartArray&& other) = delete;
-    SmartArray& operator=(const SmartArray& other) = delete;
-    SmartArray& operator=(SmartArray&& other) = delete;
+    SmartArray(const SmartArray& other){
+        std::unique_ptr newArr = std::make_unique<T>(other.length);
+        std::copy(other, other.length, newArr);
+    }
+
+    SmartArray(SmartArray&& other) : length(other.length), capacity(other.capacity) {
+        SmartArray newArr;
+        std::swap(data, other.data);
+
+        other.capacity = 0;
+        other.length = 0;
+    }
+
+    SmartArray& operator=(const SmartArray& other) {
+        length = other.length;
+        capacity = other.capacity;
+        std::copy(other.data, other.length, data);
+    }
+    SmartArray& operator=(SmartArray&& other){
+        SmartArray newArr;
+        std::swap(data, other.data);
+
+        other.capacity = 0;
+        other.length = 0;
+    }
     ~SmartArray();
     T& operator[](size_t idx);
 
@@ -52,6 +73,7 @@ public:
     Iterator end()   { return Iterator(UINT_MAX, *this); }
 
 private:
+    const size_t defaultCapacity = 5;
     std::unique_ptr<T[]> data;
     size_t length;
     size_t capacity;
@@ -60,7 +82,7 @@ private:
 
 template <class T>
 SmartArray<T>::SmartArray() 
-    : data(std::make_unique<T[]>(5)), length(0), capacity(5)
+    : data(std::make_unique<T[]>(defaultCapacity)), length(0), capacity(defaultCapacity)
 {}
 
 template <class T>
