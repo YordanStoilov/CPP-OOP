@@ -2,15 +2,16 @@
 
 #define SMART_ARRAY_H
 #include <iostream>
+#include <memory>
 
 template <class T>
 class SmartArray{
 public:
     SmartArray();
     SmartArray(size_t size);
-    SmartArray(SmartArray& other) = delete;
+    SmartArray(const SmartArray& other) = delete;
     SmartArray(SmartArray&& other) = delete;
-    SmartArray& operator=(SmartArray& other) = delete;
+    SmartArray& operator=(const SmartArray& other) = delete;
     SmartArray& operator=(SmartArray&& other) = delete;
     ~SmartArray();
     T& operator[](size_t idx);
@@ -20,24 +21,24 @@ public:
     size_t size() const;
     void print();
 private:
-    T* data;
+    std::unique_ptr<T[]> data;
     size_t length;
     size_t capacity;
     void resize();
 };
 
 template <class T>
-SmartArray<T>::SmartArray() : data(new T[5]), length(0), capacity(5)
+SmartArray<T>::SmartArray() 
+    : data(std::make_unique<T[]>(5)), length(0), capacity(5)
 {}
 
 template <class T>
-SmartArray<T>::SmartArray(size_t size) : data(new T[size]), length(0), capacity(size)
+SmartArray<T>::SmartArray(size_t size)
+    : data(std::make_unique<T[]>(size)), length(0), capacity(size)
 {}
 
 template <class T>
-SmartArray<T>::~SmartArray(){
-    delete[] data;
-}
+SmartArray<T>::~SmartArray() {}
 
 template <class T>
 T& SmartArray<T>::operator[](size_t idx){
@@ -70,14 +71,12 @@ size_t SmartArray<T>::size() const {
 
 template <class T>
 void SmartArray<T>::resize(){
-    T* newData = new T[capacity * 2];
+    std::unique_ptr<T[]> newData = std::make_unique<T[]>(capacity * 2);
     for (size_t i = 0; i < length; ++i){
         newData[i] = data[i];
     }
 
-    delete[] data;
-
-    data = newData;
+    data = std::move(newData);
     capacity *= 2;
 }
 
