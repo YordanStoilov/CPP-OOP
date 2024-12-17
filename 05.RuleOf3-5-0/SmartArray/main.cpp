@@ -14,9 +14,8 @@ int main(){
     nums[nums.size() - 2] = 100;
     nums.pop_back();
 
-    nums.print();
-
-    // for (int num : nums){
-
-    // }
+    for (int num : nums){
+        std::cout << num << ' ';
+    }
+    std::cout << std::endl;
 }

@@ -21,6 +21,36 @@ public:
     void pop_back();
     size_t size() const;
     void print();
+
+    class Iterator{
+    public:
+        Iterator(size_t idx, SmartArray& parent) 
+            : idx(idx), data(parent.data.get()), size(parent.size()) 
+        {}
+        Iterator& operator++(){
+            idx++;
+            return *this;
+        }
+        bool operator!=(const Iterator& other){
+            if (data != other.data || size != other.size) { return true; }
+
+            if (idx >= size && other.idx >= other.size){
+                return false;
+            }
+
+            return idx != other.idx;
+        }
+        T& operator*() { return data[idx]; }
+
+    private:
+        T* data;
+        size_t size;
+        size_t idx;
+    };
+
+    Iterator begin() { return Iterator(0, *this); }
+    Iterator end()   { return Iterator(UINT_MAX, *this); }
+
 private:
     std::unique_ptr<T[]> data;
     size_t length;
