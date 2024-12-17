@@ -18,4 +18,17 @@ int main(){
         std::cout << num << ' ';
     }
     std::cout << std::endl;
+
+    SmartArray<int> nums2(nums);
+
+    nums2[1] = 150;
+    nums2[2] = 267;
+
+    nums = std::move(nums2);
+
+    std::cout << "Nums 1:\n";
+    nums.print();
+
+    std::cout << "Nums 2:\n";
+    nums2.print();
 }

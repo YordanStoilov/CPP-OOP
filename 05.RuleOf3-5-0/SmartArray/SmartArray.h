@@ -9,9 +9,12 @@ class SmartArray{
 public:
     SmartArray();
     SmartArray(size_t size);
-    SmartArray(const SmartArray& other){
-        std::unique_ptr newArr = std::make_unique<T>(other.length);
-        std::copy(other, other.length, newArr);
+    SmartArray(const SmartArray& other) : capacity(other.capacity), 
+        length(other.length), data(std::make_unique<T[]>(other.capacity))
+    {
+        for (size_t i = 0; i < other.length; ++i){
+            data[i] = other.data[i];
+        }
     }
 
     SmartArray(SmartArray&& other) : length(other.length), capacity(other.capacity) {
@@ -33,6 +36,7 @@ public:
 
         other.capacity = 0;
         other.length = 0;
+        return *this;
     }
     ~SmartArray();
     T& operator[](size_t idx);
