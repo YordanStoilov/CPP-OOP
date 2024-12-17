@@ -9,10 +9,10 @@
                 
                 // "${fileDirname}/Register.cpp",
                 // "${fileDirname}/RegisterMain.cpp",
-                // "${fileDirname}/ContactManagerUI.cpp",
-                // "${fileDirname}/Echo.cpp",
+                "${fileDirname}/SmartArray.cpp",
+                "${fileDirname}/main.cpp",
                 
-                "${file}",
+                // "${file}",
 
                 "-fdiagnostics-color=always",
                 "-g",
