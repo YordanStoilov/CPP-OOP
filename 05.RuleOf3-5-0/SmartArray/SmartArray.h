@@ -16,6 +16,7 @@ public:
     ~SmartArray();
     T& operator[](size_t idx);
 
+    void push_back(T& element);
     void push_back(T&& element);
     void pop_back();
     size_t size() const;
@@ -35,7 +36,11 @@ SmartArray<T>::SmartArray()
 template <class T>
 SmartArray<T>::SmartArray(size_t size)
     : data(std::make_unique<T[]>(size)), length(0), capacity(size)
-{}
+{
+    if (size < 0){
+        throw std::invalid_argument("Capacity must be greater than 0.");
+    }
+}
 
 template <class T>
 SmartArray<T>::~SmartArray() {}
@@ -50,6 +55,14 @@ T& SmartArray<T>::operator[](size_t idx){
 
 template <class T>
 void SmartArray<T>::push_back(T&& element){
+    if (length == capacity){
+        resize();
+    }
+    data[length++] = std::forward<T>(element);
+}
+
+template <class T>
+void SmartArray<T>::push_back(T& element){
     if (length == capacity){
         resize();
     }
@@ -73,7 +86,7 @@ template <class T>
 void SmartArray<T>::resize(){
     std::unique_ptr<T[]> newData = std::make_unique<T[]>(capacity * 2);
     for (size_t i = 0; i < length; ++i){
-        newData[i] = data[i];
+        newData[i] = std::move(data[i]);
     }
 
     data = std::move(newData);
@@ -82,10 +95,10 @@ void SmartArray<T>::resize(){
 
 template <class T>
 void SmartArray<T>::print(){
-    for (size_t i = 0; i < length - 1; ++i){
+    for (size_t i = 0; i < length; ++i){
         std::cout << data[i] << ' ';
     }
-    std::cout << data[length - 1] << std::endl;
+    std::cout << std::endl;
 }
 
 #endif

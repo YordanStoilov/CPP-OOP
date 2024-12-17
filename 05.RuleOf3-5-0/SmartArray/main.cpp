@@ -16,4 +16,7 @@ int main(){
 
     nums.print();
 
+    // for (int num : nums){
+
+    // }
 }
