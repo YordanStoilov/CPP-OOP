@@ -17,25 +17,32 @@ public:
         }
     }
 
-    SmartArray(SmartArray&& other) : length(other.length), capacity(other.capacity) {
-        SmartArray newArr;
-        std::swap(data, other.data);
-
+    SmartArray(SmartArray&& other) 
+        : data(std::move(other.data)), length(other.length), capacity(other.capacity) 
+    {
         other.capacity = 0;
         other.length = 0;
     }
 
     SmartArray& operator=(const SmartArray& other) {
-        length = other.length;
-        capacity = other.capacity;
-        std::copy(other.data, other.length, data);
+        if (this != &other){
+            SmartArray temp(other);
+            std::swap(capacity, temp.capacity);
+            std::swap(length, temp.length);
+            std::swap(data, temp.data);
+        }
+        return *this;
     }
     SmartArray& operator=(SmartArray&& other){
-        SmartArray newArr;
-        std::swap(data, other.data);
+        if (this != &other){
+            data.reset();
+            data = std::move(other.data);
+            length = other.length;
+            capacity = other.capacity;
 
-        other.capacity = 0;
-        other.length = 0;
+            other.length = 0;
+            other.capacity = 0;
+        }
         return *this;
     }
     ~SmartArray();
