@@ -135,6 +135,9 @@
     "random": "cpp",
     "set": "cpp",
     "list": "cpp",
-    "thread": "cpp"
+    "thread": "cpp",
+    "functional": "cpp",
+    "memory_resource": "cpp",
+    "utility": "cpp"
   }
 }
