@@ -7,7 +7,7 @@
       "request": "launch",
       "args": [],
       "cwd": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/05.RuleOf3-5-0/RemoveInvalid",
-      "program": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/05.RuleOf3-5-0/RemoveInvalid/build/Debug/outDebug"
+      "program": "${fileDirname}/build/${fileBasenameNoExtension}"
     }
   ]
 }
