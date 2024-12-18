@@ -1,3 +1,6 @@
+#ifndef ARRAY_PTR_H
+
+#define ARRAY_PTR_H
 class ArrayOfPointers{
 public:
     void add(Company* c){
@@ -12,3 +15,5 @@ public:
 private:
     std::vector<Company*> data;
 };
+
+#endif
