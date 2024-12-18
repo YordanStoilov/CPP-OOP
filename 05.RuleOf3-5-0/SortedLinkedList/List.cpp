@@ -2,9 +2,8 @@
 #include "List.h"
 #include <sstream>
 
-List::Node::Node(int value, Node* prev, Node* next) {
-
-}
+List::Node::Node(int value, Node* prev, Node* next) : value(value), prev(nullptr), next(nullptr) 
+{}
 int List::Node::getValue() const {
     return value;
 }
@@ -12,9 +11,11 @@ int List::Node::getValue() const {
 void List::Node::setValue(int value) {
     this->value = value;
 }
+
 List::Node* List::Node::getNext() const {
     return next;
 }
+
 void List::Node::setNext(Node* next) {
     this->next = next;
 }
@@ -39,7 +40,43 @@ int List::first() const {
 }
 
 void List::add(int value) {
+    Node* newNode = new Node(value, nullptr, nullptr);
 
+    if (head == nullptr && tail == nullptr) {
+        head = tail = newNode;
+        return;
+    }
+
+    if (value <= head->getValue()) {
+        newNode->setNext(head);
+
+        head->setPrev(newNode);
+        head = newNode;
+    }
+    else if (value >= tail->getValue()) {
+        newNode->setPrev(tail);
+
+        tail->setNext(newNode);
+        tail = newNode;
+
+    } else {
+        Node* cursor = head;
+
+        while (cursor) {
+            if (cursor->getValue() >= value) {
+                Node* prev = cursor->getPrev();
+
+                cursor->setPrev(newNode);
+                newNode->setNext(cursor);
+
+                prev->setNext(newNode);
+                newNode->setPrev(prev);
+                return;
+            }
+
+            cursor = cursor->getNext();
+        }
+    }
 }
 void List::addAll(const List& other) {
     Node* cursor = other.head;
