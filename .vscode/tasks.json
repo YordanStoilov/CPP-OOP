@@ -9,10 +9,10 @@
                 
                 // "${fileDirname}/Register.cpp",
                 // "${fileDirname}/RegisterMain.cpp",
-                "${fileDirname}/RegisterMain.cpp",
-                "${fileDirname}/Register.cpp",
+                // "${fileDirname}/RegisterMain.cpp",
+                // "${fileDirname}/Register.cpp",
                 
-                // "${file}",
+                "${file}",
 
                 "-fdiagnostics-color=always",
                 "-g",
