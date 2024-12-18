@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/04.OopConstructors/Find",
-      "program": "${fileDirname}/build/${fileBasenameNoExtension}"
+      "cwd": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/05.RuleOf3-5-0/RemoveInvalid",
+      "program": "/Users/yordanstoilov/Desktop/headrush/Coding/C_preparation/CPP-OOP/05.RuleOf3-5-0/RemoveInvalid/build/Debug/outDebug"
     }
   ]
 }
