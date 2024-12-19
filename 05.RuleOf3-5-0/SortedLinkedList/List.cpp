@@ -44,10 +44,8 @@ void List::add(int value) {
 
     if (head == nullptr && tail == nullptr) {
         head = tail = newNode;
-        return;
     }
-
-    if (value <= head->getValue()) {
+    else if (value <= head->getValue()) {
         newNode->setNext(head);
 
         head->setPrev(newNode);
@@ -77,6 +75,7 @@ void List::add(int value) {
             cursor = cursor->getNext();
         }
     }
+    size++;
 }
 void List::addAll(const List& other) {
     Node* cursor = other.head;
@@ -89,6 +88,7 @@ void List::removeFirst() {
     Node* temp = head;
     head = head->getNext();
     delete temp;
+    size--;
 }
 void List::removeAll() {
     Node* cursor = head;
@@ -98,6 +98,8 @@ void List::removeAll() {
         cursor = cursor->getNext();
         delete temp;
     }
+    head = tail = nullptr;
+    size = 0;
 }
 
 size_t List::getSize() const {
@@ -141,12 +143,13 @@ List& List::operator<<(const List& other) {
 }
 
 List& List::operator=(const List& other) {
+
+    if (this == &other) {
+        return *this;
+    }
+    removeAll();
     addAll(other);
-
-    head = other.head;
-    tail = other.tail;
-    size = other.size;
-
+    
     return *this;
 }
 
