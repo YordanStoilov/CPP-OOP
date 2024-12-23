@@ -7,12 +7,12 @@
             "args": [
                 "-std=c++17", 
                 
-                "${fileDirname}/Constants.cpp",
-                "${fileDirname}/main.cpp",
+                // "${fileDirname}/Constants.cpp",
+                // "${fileDirname}/main.cpp",
                 // "${fileDirname}/List.cpp",
                 // "${fileDirname}/ListMain.cpp",
                 
-                // "${file}",
+                "${file}",
 
                 "-fdiagnostics-color=always",
                 "-g",
