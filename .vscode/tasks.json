@@ -8,7 +8,7 @@
                 "-std=c++17", 
                 
                 "${fileDirname}/main.cpp",
-                "${fileDirname}/IndexedSet.cpp",
+                "${fileDirname}/Defines.cpp",
                 // "${fileDirname}/main.cpp",
                 // "${fileDirname}/List.cpp",
                 // "${fileDirname}/ListMain.cpp",
