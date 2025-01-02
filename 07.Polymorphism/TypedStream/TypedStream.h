@@ -9,17 +9,17 @@ public:
     }
     virtual TypedStream<std::string>& operator>>(std::string& s) {
     }
-    friend std::string& operator>>(std::ostringstream& stream, std::string& s);
+    virtual std::string& operator>>(std::ostream& stream, std::string& s) {
+    s = stream.str();
+    return s;
+}
 
-
+    std::string readToEnd(void) {
+        return stream.str();
+    }
 protected:
     std::string input;
     std::ostringstream stream;
 }; 
-
-std::string& operator>>(std::ostringstream& stream, std::string& s) {
-    s = stream.str();
-    return s;
-}
 
 #endif
