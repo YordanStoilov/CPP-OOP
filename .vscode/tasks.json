@@ -7,13 +7,13 @@
             "args": [
                 "-std=c++17", 
                 
-                // "${fileDirname}/main.cpp",
-                // "${fileDirname}/Defines.cpp",
-                // "${fileDirname}/main.cpp",
-                // "${fileDirname}/List.cpp",
+                "${fileDirname}/main.cpp",
+                "${fileDirname}/DesertEagle.cpp",
+                "${fileDirname}/Glock.cpp",
+                "${fileDirname}/Player.cpp",
                 // "${fileDirname}/ListMain.cpp",
                 
-                "${file}",
+                // "${file}",
 
                 "-fdiagnostics-color=always",
                 "-g",
