@@ -5,5 +5,6 @@ Glock::Glock(const int damagePerRound, const int clipSize, const int remainingAm
         {}
 
 bool Glock::fire(PlayerVitalData & enemyPlayerData) {
+    
     return true;
 }
