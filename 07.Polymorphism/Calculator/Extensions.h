@@ -43,7 +43,7 @@ public:
             return 0;
         }
         int result = memory.top();
-        memory.top();
+        memory.pop();
 
         return result;        
     }
